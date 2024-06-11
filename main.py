@@ -48,7 +48,7 @@ with st.sidebar:
     st.header("Roe AI PDF Parser Visualizer", divider="rainbow")
     uploaded_pdf = st.file_uploader("Choose a PDF file", type="pdf")
 
-    json_input = st.text_area("Paste JSON content here")
+    json_input = st.text_area("Paste Roe AI PDF Parser JSON here")
     json_data = None
     try:
         json_data = json.loads(json_input)
@@ -75,6 +75,6 @@ if uploaded_pdf is not None and json_data is not None:
                     page_number += 1
                     st.session_state["page_number"] = page_number
         display_pdf_image(doc, page_number - 1)
-
+    st.header("Roe AI PDF Parser Result", divider="rainbow")
     display_markdown(json_data, page_number)
     display_tables(json_data, page_number)
